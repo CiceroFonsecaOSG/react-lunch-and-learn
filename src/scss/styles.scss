@@ -140,6 +140,44 @@ a {
   }
 
   &__footer {
+    text-align: right;
     padding: 0 $card-x-padding $card-x-padding;
+  }
+}
+
+.btn {
+  background-color: $brand-white;
+  font-size: 0.875rem;
+  font-weight: $font-semi-bold;
+  line-height: 1.1;
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  color: $brand-blue;
+  border-color: $brand-blue;
+
+  &:hover {
+    background-color: $brand-blue-light;
+  }
+}
+
+#modal {
+  background-color: rgba($brand-black, 0.9);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    max-width: 500px;
+    padding: 15px;
+    text-align: center;
+    background: $brand-grey-lighter;
   }
 }

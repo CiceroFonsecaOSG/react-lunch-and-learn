@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ content }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <article className="card">
       <div className="card__wrapper">
@@ -16,14 +20,18 @@ const Card = ({ content }) => {
               Created <span className="sr-only">on</span>
               {new Date(content.created_at)
                 .toDateString()
-                .split(' ')
+                .split(" ")
                 .slice(1)
-                .join(' ')}
+                .join(" ")}
             </div>
           </div>
           <div
             className="card__thumbnail"
-            style={{ backgroundImage: `url(${window.location.origin + '/' + content.image_url})` }}
+            style={{
+              backgroundImage: `url(${
+                window.location.origin + "/" + content.image_url
+              })`,
+            }}
           ></div>
         </div>
         <div className="card__desc-wrapper">
@@ -33,11 +41,9 @@ const Card = ({ content }) => {
           </Link>
         </div>
         <div className="card__footer">
-          {/* <Button
-            type="primary"
-            buttonClass="card__btn"
-            text={!isCoursePaid ? 'Start Course' : 'Buy Course'}
-          /> */}
+          <button className="card__btn btn" onClick={() => toggleModal()}>
+            Buy Course
+          </button>
         </div>
       </div>
     </article>
