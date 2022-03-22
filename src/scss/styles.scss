@@ -1,0 +1,145 @@
+@import "./variables.scss";
+
+// Global
+a {
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Header
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $brand-white;
+  border-bottom: 1px solid $brand-grey-light;
+  margin-bottom: 1rem;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+.nav {
+  &__wrapper {
+    flex: 1 1 auto;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding: 1rem 2rem;
+  }
+}
+
+.hover-item {
+  border-bottom: solid 3px transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-blue-light;
+    text-decoration: underline;
+    border-color: $brand-blue;
+  }
+
+  &.active {
+    border-color: $brand-blue;
+  }
+}
+
+// Page
+.padded-section {
+  width: 90%;
+  max-width: 1024px;
+  margin: auto;
+}
+
+// Courses Grid
+.page-content {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.75rem;
+    column-gap: 0.5rem;
+  }
+}
+
+// Courses Card
+.card {
+  &__wrapper {
+    background-color: $brand-white;
+    border: 1px solid $brand-grey-light;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__details-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: $card-y-padding $card-x-padding;
+  }
+
+  &__length,
+  &__created {
+    font-size: 0.75rem;
+    font-weight: $font-semi-bold;
+    letter-spacing: 0.015em;
+    color: $brand-grey;
+  }
+
+  &__thumbnail {
+    aspect-ratio: 2/1;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  &__desc-wrapper {
+    padding: $card-content-y-padding $card-x-padding;
+  }
+
+  &__title {
+    padding-bottom: $card-content-y-padding;
+    font-size: 1.5rem;
+    font-weight: $font-bold;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: $brand-grey-dark;
+  }
+
+  &__subtitle {
+    font-size: 0.75rem;
+    font-weight: $font-regular;
+    line-height: 1.75;
+    letter-spacing: 0;
+    color: $brand-grey-dark;
+  }
+
+  &__footer {
+    padding: 0 $card-x-padding $card-x-padding;
+  }
+}
