@@ -71,6 +71,7 @@ a {
   width: 90%;
   max-width: 1024px;
   margin: auto;
+  padding-bottom: 1rem;
 }
 
 // Courses Grid
@@ -145,6 +146,17 @@ a {
   }
 }
 
+input {
+  background-color: $brand-white;
+  font-size: 0.875rem;
+  font-weight: $font-semi-bold;
+  line-height: 1.1;
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+  border-color: $brand-blue;
+}
+
 .btn {
   background-color: $brand-white;
   font-size: 0.875rem;
@@ -160,6 +172,11 @@ a {
   &:hover {
     background-color: $brand-blue-light;
   }
+
+  &.delete {
+    color: $brand-blue-dark;
+    border-color: $brand-blue-dark;
+  }
 }
 
 #modal {
@@ -173,9 +190,46 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.875rem;
+  font-weight: $font-semi-bold;
+  line-height: 1.1;
+
+  h1,
+  .add-custom {
+    margin-bottom: 1rem;
+  }
+
+  .add-custom {
+    .btn {
+      margin-left: 0.5rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    li {
+      width: 100%;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+
+      button {
+        margin: 0 0.5rem;
+        justify-self: flex-end;
+      }
+    }
+  }
 
   > div {
-    max-width: 500px;
+    width: 500px;
+    height: 300px;
     padding: 15px;
     text-align: center;
     background: $brand-grey-lighter;
