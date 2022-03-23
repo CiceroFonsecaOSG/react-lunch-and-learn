@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Customizer from "./Customizer/Customizer";
+import Portal from "../Portal";
 
 const Card = ({ content }) => {
   const [showModal, setShowModal] = useState(false);
@@ -44,6 +46,21 @@ const Card = ({ content }) => {
           <button className="card__btn btn" onClick={() => toggleModal()}>
             Buy Course
           </button>
+          {showModal && (
+            <Portal>
+              <div id="modal">
+                <div>
+                  <Customizer />
+                  <button
+                    className="card__btn btn"
+                    onClick={() => toggleModal()}
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            </Portal>
+          )}
         </div>
       </div>
     </article>
