@@ -4,12 +4,12 @@ import AddCustom from "./AddCustom";
 import ListCustom from "./ListCustom";
 
 export default function Customizer() {
-  const [customs, dispatch] = useReducer(customsReducer, []);
+  const [customs, dispatch] = useReducer(customsReducer, initialCustoms);
 
   const handleAddCustom = (text) => {
     dispatch({
       type: "added",
-      id: customs[customs.length + 1],
+      id: nextId++,
       text: text,
       reviewed: false,
     });
@@ -41,3 +41,9 @@ export default function Customizer() {
     </>
   );
 }
+
+let nextId = 3;
+const initialCustoms = [
+  { id: 0, text: "Replace logos and colors", reviewed: true },
+  { id: 1, text: "Extend course duration", reviewed: false },
+];
