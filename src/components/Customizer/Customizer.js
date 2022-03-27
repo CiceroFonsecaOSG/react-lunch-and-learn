@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import AddCustom from "./AddCustom";
 import ListCustom from "./ListCustom";
 
-const Customizer = () => {
-  const [customs, setCustoms] = useState([]);
+export default function Customizer() {
+  const [customs, setCustoms] = useState(initialCustoms);
 
   const handleAddCustom = (text) => {
     setCustoms([
       ...customs,
       {
-        id: customs[customs.length - 1],
+        id: nextId,
         text: text,
         reviewed: false,
       },
@@ -43,6 +43,10 @@ const Customizer = () => {
       />
     </>
   );
-};
+}
 
-export default Customizer;
+let nextId = 3;
+const initialCustoms = [
+  { id: 0, text: "Replace logos and colors", reviewed: true },
+  { id: 1, text: "Extend course duration", reviewed: false },
+];
