@@ -1,35 +1,32 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+import { customsReducer } from "./customizerReducer";
 import AddCustom from "./AddCustom";
 import ListCustom from "./ListCustom";
 
-const Customizer = () => {
-  const [customs, setCustoms] = useState([]);
+export default function Customizer() {
+  const [customs, dispatch] = useReducer(customsReducer, []);
 
   const handleAddCustom = (text) => {
-    setCustoms([
-      ...customs,
-      {
-        id: customs[customs.length - 1],
-        text: text,
-        reviewed: false,
-      },
-    ]);
+    dispatch({
+      type: "added",
+      id: customs[customs.length + 1],
+      text: text,
+      reviewed: false,
+    });
   };
 
   const handleChangeCustom = (custom) => {
-    setCustoms(
-      customs.map((c) => {
-        if (c.id === custom.id) {
-          return custom;
-        } else {
-          return c;
-        }
-      })
-    );
+    dispatch({
+      type: "changed",
+      custom: custom,
+    });
   };
 
   const handleDeleteCustom = (customId) => {
-    setCustoms(customs.filter((custom) => custom.id !== customId));
+    dispatch({
+      type: "deleted",
+      id: customId,
+    });
   };
 
   return (
@@ -43,6 +40,4 @@ const Customizer = () => {
       />
     </>
   );
-};
-
-export default Customizer;
+}
