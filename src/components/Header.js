@@ -28,7 +28,7 @@ const NavigationItem = ({ item }) => {
 const Header = ({ routes }) => {
   return (
     <header className="header">
-      <div className="header__wrapper padded-section">
+      <div className="header__wrapper">
         <Navigation routes={routes} />
       </div>
     </header>
