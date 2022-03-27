@@ -9,7 +9,7 @@ export default function Customizer() {
     setCustoms([
       ...customs,
       {
-        id: nextId,
+        id: nextId++,
         text: text,
         reviewed: false,
       },
