@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorBoundary from "../../ErrorBoundary";
 import CustomItem from "./CustomItem";
 
 const ListCustom = ({ customs, onChangeCustom, onDeleteCustom }) => {

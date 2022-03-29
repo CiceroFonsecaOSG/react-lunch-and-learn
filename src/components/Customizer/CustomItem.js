@@ -5,6 +5,8 @@ const CustomItem = ({ custom, onChange, onDelete }) => {
   let customItemContent;
 
   if (isEditing) {
+    throw new Error("I crashed!");
+
     customItemContent = (
       <>
         <input
