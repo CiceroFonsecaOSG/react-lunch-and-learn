@@ -1,7 +1,6 @@
 export function customsReducer(customs, action) {
   switch (action.type) {
     case "added": {
-      console.log(customs);
       return [
         ...customs,
         {
